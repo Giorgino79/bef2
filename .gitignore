@@ -1,0 +1,355 @@
+# ============================================================================
+# BEF-PRO v2.0 - .gitignore
+# Sistema Gestionale Beverage & Food - giiSoftware Spa
+# ============================================================================
+
+# ============================================================================
+# PYTHON
+# ============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ============================================================================
+# DJANGO
+# ============================================================================
+# Database
+db.sqlite3
+db.sqlite3-journal
+*.db
+
+# Migrations (uncommenta se vuoi ignorare le migrazioni)
+# */migrations/*.py
+# */migrations/*.pyc
+# !*/migrations/__init__.py
+
+# Media files (file upload utenti)
+media/
+!media/.gitkeep
+
+# Static files raccolti
+staticfiles/
+!static/.gitkeep
+
+# Django logs
+*.log
+logs/
+!logs/.gitkeep
+
+# Django settings locali
+local_settings.py
+settings_local.py
+
+# Django session files
+django_session/
+
+# ============================================================================
+# ENVIRONMENT VARIABLES & SECRETS
+# ============================================================================
+.env
+.env.local
+.env.production
+.env.staging
+.environment
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Secrets e configurazioni sensibili
+secrets.json
+config.json
+.secrets/
+
+# ============================================================================
+# DEVELOPMENT TOOLS
+# ============================================================================
+# Virtual environments
+pyvenv.cfg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# ============================================================================
+# TESTING & COVERAGE
+# ============================================================================
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Django test database
+test_*.db
+
+# ============================================================================
+# IDEs & EDITORS
+# ============================================================================
+# VS Code
+.vscode/
+*.code-workspace
+.history/
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Atom
+.atom/
+
+# ============================================================================
+# OPERATING SYSTEMS
+# ============================================================================
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Icon?
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================================================
+# DOCUMENTATION & BUILDS
+# ============================================================================
+# Sphinx documentation
+docs/_build/
+docs/build/
+.readthedocs.yml
+
+# MkDocs
+site/
+
+# ============================================================================
+# CACHE & TEMPORARY FILES
+# ============================================================================
+# Redis dumps
+dump.rdb
+
+# Node.js (se usi tool frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# Sass
+.sass-cache/
+*.css.map
+
+# ============================================================================
+# DEPLOYMENT & PRODUCTION
+# ============================================================================
+# Fabric
+fabfile.py
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Kubernetes
+*.yaml.bak
+*.yml.bak
+
+# Ansible
+*.retry
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# ============================================================================
+# BACKUP & TEMPORARY FILES
+# ============================================================================
+# Database backups
+*.sql
+*.dump
+backup/
+backups/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ============================================================================
+# SECURITY & CERTIFICATES
+# ============================================================================
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+
+# GPG keys
+*.gpg
+*.asc
+
+# ============================================================================
+# PROJECT SPECIFIC - BEF-PRO
+# ============================================================================
+# Reports generati
+reports/generated/
+exports/
+temp_files/
+
+# Upload temporanei
+uploads/temp/
+
+# Cache personalizzate
+cache/
+.cache/
+
+# Configurazioni server locali
+apache/
+nginx/
+supervisor/
+
+# File di lock
+*.lock
+.lock
+
+# ============================================================================
+# DEVELOPMENT ASSETS
+# ============================================================================
+# Source maps
+*.map
+
+# Compiled CSS/JS (se hai build process)
+static/dist/
+assets/dist/
+
+# Vendor libraries (se gestite manualmente)
+static/vendor/
+!static/vendor/.gitkeep
+
+# ============================================================================
+# MONITORING & ANALYTICS
+# ============================================================================
+# New Relic
+newrelic.ini
+
+# Sentry
+.sentryclirc
+
+# Google Analytics
+analytics/
+
+# ============================================================================
+# CUSTOM ADDITIONS
+# ============================================================================
+# Aggiungi qui file specifici del tuo ambiente
+# Esempi:
+# custom_configs/
+# local_scripts/
+# personal_notes.txt
+
+# ============================================================================
+# KEEP EMPTY DIRECTORIES
+# ============================================================================
+# Mantieni directory vuote importanti con file .gitkeep
+!.gitkeep
