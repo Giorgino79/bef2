@@ -1,0 +1,439 @@
+# 🚀 BEF-PRO v2.0
+
+**Sistema Gestionale Beverage & Food - Nuova Generazione**
+
+[![Django](https://img.shields.io/badge/Django-4.2.13-green.svg)](https://www.djangoproject.com/)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple.svg)](https://getbootstrap.com/)
+[![License](https://img.shields.io/badge/License-Private-red.svg)](LICENSE)
+
+Sistema gestionale completo per aziende del settore beverage e food, sviluppato da **giiSoftware Spa**.
+
+---
+
+## 📋 Indice
+
+- [Caratteristiche](#-caratteristiche)
+- [Installazione](#-installazione)
+- [Configurazione](#-configurazione)
+- [Utilizzo](#-utilizzo)
+- [Moduli](#-moduli)
+- [API](#-api)
+- [Sviluppo](#-sviluppo)
+- [Contributi](#-contributi)
+- [Supporto](#-supporto)
+
+---
+
+## ✨ Caratteristiche
+
+### 🎯 **Core Features**
+- **🏢 Multi-Stabilimento** - Gestione sedi multiple
+- **📦 Magazzino Avanzato** - Tracking completo inventory
+- **🛒 Gestione Acquisti** - Workflow ordini completo
+- **📊 Analytics** - Dashboard e report avanzati
+- **👥 Gestione Utenti** - Sistema permessi granulare
+- **📧 Notifiche Email** - Sistema automatico
+- **📱 Responsive Design** - Mobile-first approach
+
+### 🔧 **Tecnologie**
+- **Backend**: Django 4.2.13 + Python 3.8+
+- **Frontend**: Bootstrap 5 + JavaScript ES6
+- **Database**: SQLite (dev) / PostgreSQL (prod)
+- **Cache**: Redis (opzionale)
+- **Task Queue**: Celery (opzionale)
+- **PDF Generation**: xhtml2pdf
+- **Excel Export**: openpyxl
+
+---
+
+## 🚀 Installazione
+
+### **Prerequisiti**
+- Python 3.8 o superiore
+- Git
+- (Opzionale) Redis per cache
+- (Opzionale) PostgreSQL per produzione
+
+### **Setup Rapido**
+
+```bash
+# 1. Clona il repository
+git clone https://github.com/Giorgino79/bef2.git
+cd bef2
+
+# 2. Crea ambiente virtuale
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# venv\Scripts\activate   # Windows
+
+# 3. Installa dipendenze
+pip install -r requirements.txt
+
+# 4. Configura ambiente
+cp .env.example .env
+# Modifica .env con le tue configurazioni
+
+# 5. Setup database
+python manage.py makemigrations
+python manage.py migrate
+
+# 6. Crea superuser
+python manage.py createsuperuser
+
+# 7. Raccogli file statici
+python manage.py collectstatic
+
+# 8. Avvia server sviluppo
+python manage.py runserver
+```
+
+🎉 **Il sistema è ora disponibile su**: http://127.0.0.1:8000
+
+---
+
+## ⚙️ Configurazione
+
+### **File .env**
+Crea un file `.env` nella root del progetto:
+
+```bash
+# Django Core
+DEBUG=True
+SECRET_KEY=your-secret-key-here
+ALLOWED_HOSTS=localhost,127.0.0.1
+
+# Database (PostgreSQL per produzione)
+# DATABASE_URL=postgresql://user:password@localhost:5432/befpro
+
+# Email Configuration
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER=your-email@gmail.com
+EMAIL_HOST_PASSWORD=your-app-password
+
+# Company Info
+COMPANY_NAME=giiSoftware Spa
+COMPANY_ADDRESS=Via Tione degli Abruzzi, 19 - 00132 Roma (RM)
+COMPANY_PHONE=+39 393 9657180
+COMPANY_EMAIL=danigioloso@gmail.com
+COMPANY_VAT=IT12345678901
+COMPANY_WEBSITE=https://www.giiholding.it
+
+# Redis (opzionale)
+# REDIS_URL=redis://localhost:6379/1
+
+# Celery (opzionale)
+# CELERY_BROKER_URL=redis://localhost:6379/0
+```
+
+### **Database Setup**
+
+#### **SQLite (Sviluppo) - Default**
+```bash
+python manage.py migrate
+```
+
+#### **PostgreSQL (Produzione)**
+```bash
+# 1. Installa PostgreSQL adapter
+pip install psycopg2-binary
+
+# 2. Configura DATABASE_URL nel .env
+DATABASE_URL=postgresql://user:password@localhost:5432/befpro
+
+# 3. Applica migrazioni
+python manage.py migrate
+```
+
+---
+
+## 📱 Utilizzo
+
+### **Accesso Sistema**
+1. **Admin Panel**: `/admin/` - Gestione amministrativa
+2. **Dashboard**: `/` - Dashboard principale
+3. **API**: `/api/` - Endpoint REST
+4. **Documentazione API**: `/api/docs/` (quando attivata)
+
+### **Primi Passi**
+1. **Login** con il superuser creato
+2. **Configura stabilimenti** in `/admin/`
+3. **Aggiungi categorie prodotti** 
+4. **Crea anagrafica prodotti**
+5. **Imposta fornitori**
+6. **Inizia gestione magazzino**
+
+---
+
+## 🧩 Moduli
+
+### **✅ Implementati**
+
+#### **Core** - Sistema Base
+- Configurazioni aziendali
+- Template unificati
+- Context processors
+- Utilities condivise
+
+#### **Accounts** - Gestione Utenti
+- Autenticazione email
+- Profili utente
+- Sistema permessi
+- Audit trail
+
+### **🔄 In Sviluppo**
+
+#### **Prodotti** - Anagrafica
+- Categorie prodotti
+- Schede prodotto complete
+- Gestione fornitori
+- Listini prezzi
+
+#### **Mag2** - Magazzino V2
+- Multi-stabilimento
+- Tracking lotti/scadenze
+- Movimentazioni
+- Inventari fisici
+- Trasferimenti inter-sede
+
+#### **Acquisti** - Gestione Ordini
+- Ordini di acquisto
+- Workflow approvazioni
+- Ricezioni merce
+- Coordinamento magazzino
+
+### **📋 Roadmap**
+
+#### **Q3 2025**
+- [ ] Modulo Vendite
+- [ ] Sistema Fatturazione
+- [ ] Report Avanzati
+- [ ] Mobile App
+
+#### **Q4 2025**
+- [ ] Business Intelligence
+- [ ] Integrazione E-commerce
+- [ ] API Pubbliche
+- [ ] Sistema Backup
+
+---
+
+## 🔌 API
+
+### **Autenticazione**
+```bash
+# Token-based authentication
+curl -X POST http://localhost:8000/api/auth/login/ \
+  -H "Content-Type: application/json" \
+  -d '{"email": "user@example.com", "password": "password"}'
+```
+
+### **Endpoint Principali**
+- `GET /api/prodotti/` - Lista prodotti
+- `GET /api/magazzino/` - Stock corrente
+- `POST /api/movimenti/` - Crea movimento
+- `GET /api/ordini/` - Lista ordini
+
+### **Documentazione Completa**
+- **Swagger UI**: `/api/docs/` (quando attivata)
+- **Redoc**: `/api/redoc/` (quando attivata)
+
+---
+
+## 👨‍💻 Sviluppo
+
+### **Struttura Progetto**
+```
+bef2/
+├── config/                 # Configurazioni Django
+├── apps/                   # Apps del progetto
+│   ├── core/              # Sistema base
+│   ├── accounts/          # Gestione utenti
+│   ├── prodotti/          # Anagrafica prodotti
+│   ├── mag2/              # Magazzino V2
+│   └── acquisti/          # Gestione acquisti
+├── static/                # Asset statici
+│   ├── css/common/        # CSS condivisi
+│   ├── js/common/         # JavaScript condiviso
+│   └── images/            # Immagini
+├── templates/             # Template globali
+├── media/                 # File upload
+├── logs/                  # File di log
+└── docs/                  # Documentazione
+```
+
+### **Ambiente Sviluppo**
+
+```bash
+# Attiva debug toolbar
+pip install django-debug-toolbar
+
+# Variabili ambiente sviluppo
+DEBUG=True
+DJANGO_SETTINGS_MODULE=config.settings
+
+# Comandi utili
+python manage.py shell          # Shell Django
+python manage.py dbshell        # Shell database
+python manage.py runserver      # Server sviluppo
+python manage.py test           # Esegui test
+```
+
+### **Testing**
+
+```bash
+# Installa dipendenze test
+pip install pytest-django coverage
+
+# Esegui test
+python manage.py test
+
+# Con coverage
+coverage run --source='.' manage.py test
+coverage report
+coverage html
+```
+
+### **Code Style**
+
+```bash
+# Installa linting tools
+pip install black flake8 isort
+
+# Format code
+black .
+isort .
+flake8 .
+```
+
+---
+
+## 📊 Performance
+
+### **Ottimizzazioni Incluse**
+- **Database**: Query ottimizzate con select_related/prefetch_related
+- **Cache**: Sistema Redis per query pesanti
+- **Static Files**: Compressione e minificazione
+- **Images**: Ottimizzazione automatica upload
+- **API**: Paginazione e filtri efficienti
+
+### **Monitoring**
+- **Debug Toolbar**: Analisi query SQL
+- **Logging**: Sistema log strutturato
+- **Profiling**: Performance profiler integrato
+
+---
+
+## 🛡️ Sicurezza
+
+### **Misure Implementate**
+- **CSRF Protection**: Protezione cross-site
+- **SQL Injection**: ORM Django safe
+- **XSS Protection**: Template escaping
+- **Permissions**: Sistema granulare
+- **Audit Trail**: Tracking modifiche
+- **Secure Headers**: Security middleware
+
+### **Best Practices**
+- Password forti obbligatorie
+- Session timeout configurabile
+- Login attempt limiting
+- File upload validation
+- HTTPS enforcement (produzione)
+
+---
+
+## 🚀 Deployment
+
+### **Produzione con Docker** (Coming Soon)
+```bash
+# Build container
+docker build -t befpro:latest .
+
+# Run with docker-compose
+docker-compose up -d
+```
+
+### **Deploy Tradizionale**
+```bash
+# 1. Setup server (Ubuntu/CentOS)
+# 2. Install Python, PostgreSQL, Redis
+# 3. Clone repository
+# 4. Configure .env per produzione
+# 5. Install gunicorn
+pip install gunicorn
+
+# 6. Collect static files
+python manage.py collectstatic --noinput
+
+# 7. Run migrations
+python manage.py migrate
+
+# 8. Start gunicorn
+gunicorn config.wsgi:application --bind 0.0.0.0:8000
+```
+
+---
+
+## 🤝 Contributi
+
+### **Per Sviluppatori giiSoftware**
+
+1. **Fork** del repository
+2. **Crea branch** per feature: `git checkout -b feature/AmazingFeature`
+3. **Commit** modifiche: `git commit -m 'Add AmazingFeature'`
+4. **Push** branch: `git push origin feature/AmazingFeature`
+5. **Apri Pull Request**
+
+### **Coding Standards**
+- **PEP 8** compliance
+- **Docstrings** per funzioni pubbliche
+- **Type hints** quando possibile
+- **Test coverage** > 80%
+- **Commit messages** descrittivi
+
+---
+
+## 📞 Supporto
+
+### **Contatti**
+- **Email**: danigioloso@gmail.com
+- **Telefono**: +39 393 9657180
+- **Website**: https://www.giiholding.it
+
+### **Documentazione**
+- **Wiki Interno**: `/docs/`
+- **API Docs**: `/api/docs/`
+- **Change Log**: `CHANGELOG.md`
+
+### **Bug Report**
+Per segnalare bug o richiedere feature:
+1. Verifica che non sia già presente in Issues
+2. Crea nuovo Issue con template
+3. Includi: SO, browser, step per riprodurre
+4. Aggiungi screenshot se utili
+
+---
+
+## 📄 Licenza
+
+**Software Proprietario** - giiSoftware Spa
+
+Questo software è proprietà di giiSoftware Spa. Tutti i diritti riservati.  
+Non è consentita la distribuzione, modifica o uso commerciale senza autorizzazione scritta.
+
+---
+
+## 🙏 Ringraziamenti
+
+- **Team giiSoftware** per lo sviluppo
+- **Community Django** per il framework
+- **Bootstrap Team** per l'UI framework
+- **Contributors** che hanno reso possibile questo progetto
+
+---
+
+**BEF-PRO v2.0** - La nuova generazione della gestione aziendale  
+*Sviluppato con ❤️ da giiSoftware Spa*
